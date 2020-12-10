@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="splash" type="id" />
+    <item name="login" type="id" />
+    <item name="privacy" type="id" />
+    <item name="manga" type="id" />
+    <item name="home" type="id" />
+    <item name="genre" type="id" />
+    <item name="library" type="id" />
+    <item name="person" type="id" />
+</resources>

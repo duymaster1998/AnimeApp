@@ -1,0 +1,127 @@
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:orientation="vertical">
+
+        <include layout="@layout/item_small_divider" />
+
+        <TextView
+            style="@style/TextBlack13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_5sdp"
+            android:text="@string/description" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/TextWhite17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/reply_red_400"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_category" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/TextBlack11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/author"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_author"
+                style="@style/TextBlack11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Oda"
+                android:textColor="@color/reply_red_400"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/view_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatRatingBar
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:rating="3.5"
+                android:stepSize="0.1" />
+
+            <TextView
+                android:id="@+id/rating"
+                style="@style/TextBlack13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:text="4.5"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_edit" />
+        </LinearLayout>
+
+        <Button
+            style="@style/TextWhite9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/reply_red_400"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:text="@string/watch_anime"
+            android:textStyle="bold"
+            app:shapeAppearance="?attr/shapeAppearanceLargeComponent" />
+
+        <TextView
+            android:id="@+id/content"
+            style="@style/TextBlack11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textColor="@color/reply_blue_300" />
+
+        <TextView
+            style="@style/TextBlack15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_16sdp"
+            android:text="@string/recommend_for_you"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="3"
+            tools:itemCount="6"
+            tools:listitem="@layout/item_series" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
