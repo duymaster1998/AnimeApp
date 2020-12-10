@@ -1,0 +1,109 @@
+<resources>
+    <string name="app_name">Anime</string>
+    <string name="title_base_module">base</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_in_with_google">Sign in with google</string>
+    <string name="sign_in_with_facebook">Sign in with facebook</string>
+    <string name="verify">Verify</string>
+    <string name="continue_">Continue</string>
+    <string name="facebook_app_id">854965008646554</string>
+    <string name="fb_login_protocol_scheme">fb854965008646554</string>
+    <string name="your_phone_number">Your phone number</string>
+    <string name="anime">Anime +</string>
+    <string name="send_otp"><i><u>Send opt</u></i></string>
+    <string name="privacy_policy"><u>Privacy Policy</u></string>
+    <string name="privacy_agreement"><u>Privacy agreement</u></string>
+    <string name="privacy_agreement_content"><b>Terms &amp; Conditions</b> \n\n
+        \t\tCopyright Statement (hereinafter referred to as “the statement”) \n\n
+        \t\tThe ownership of the content(including but not limited to) text, graph, Logo, idea, link, software, etc. included in Anime+is attributed to Anime+and the provider of Anime+content/information, and is protected by the Chinese Copyright Law and International Copyright Law\n\n
+        \t\tFor the purpose of the reproduction of all contents of Anime+(it refers to collection, combination and recombination) or any other form of use requires the prior written consent of Anime+, and Anime+is entitled to the exclusive right and protected by the Chinese Copyright Law and International Copyright Law.\n\n
+        \t\tOwnership of all software used by Anime+is attributed to Anime+or its software provider and is protected by the Chinese Copyright Law and International Copyright Law. Any specific information of Anime+can only be reproduced with permission of Anime+and the source shall be indicated.\n\n
+        <b>1. Clauses for Information Release</b>\n\n
+        The information released by Anime+users shall only be used for legitimate purposes, that is, to view information, consult online and communicate with users;\n\n
+        \t\t• Publishing deficient or false data in the released information is prohibited, and we shall reserve the right to suspend or terminate the services provided for the users in the event of finding any violation of the relevant terms of use;\n\n
+        \t\t• All the information released in Anime+shall not violate the national and local government regulations, rules, administrative measures on the Internet network information security and other relevant laws and regulations;\n\n
+        \t\t• The user who releases the information shall be responsible for interpreting the content of such information and shall independently bear all the consequences and legal responsibilities arising therefrom;\n\n
+        \t\t• Anime+has the right to use all information released by users through Anime+, and reserves the right to manage, modify and delete the information released by users;\n\n
+        \t\t• Users are prohibited from using the information of Anime+for other purposes without the authorization of Anime+.\n\n
+        <b>2. Clauses for User Privacy</b>\n\n
+        \t\tRespecting users\' personal information is a basic policy of Anime+user services. Detailed user privacy terms can be found at https://h5.Anime+.mobi/PrivacyPolicy/en \n
+        <b>3. Minors use Anime+</b>\n\n
+        \t\tParents or guardians are encouraged to instruct minors under the age of eighteen to use Anime+. Anime+recommends that minors encourage their parents or guardians to read the statement and other relevant user agreements or privacy policies, and that minors seek the consent and guidance from their parents or guardians before submitting their personal privacy information.\n\n
+        <b>4. Intellectual Property Right</b>\n\n
+        \t\tAll intellectual property rights of software, technology, trademark and materials used by Anime+belong to Anime+.\n\n
+        \t\t• Users shall not modify, adapt or translate the software, technology, materials, etc. used in Anime+services, or create derivative works related thereto; they shall not obtain the source code by reserve engineering, decompiling, disassembling or other similar behaviors, otherwise the user shall be responsible for all the legal consequences arising therefrom, and Anime+will investigate the legal liability of the breaching party according to law.\n\n
+        \t\t• Users shall not maliciously modify, copy or disseminate the software, technology, materials, etc. used by Anime+. Otherwise, users shall be liable for any damage caused thereby to others or to the corporate image of Anime+, and shall bear corresponding legal responsibility.\n\n
+        \t\t• Users shall not delete, reveal or alter the copyright statement, trademark or other right statements of Anime+. All design pattern and other pattern, product and service names of Anime+are trademarks and logos owned by Anime+and/or its affiliates. Any one shall not use or copy them or use them for any other purpose.\n\n
+        \t\t• Anime+is entitled to the full intellectual property right to its own contents and other exclusive contents obtained by authorization, and any unit or individual shall not reprint, disseminate or provide the viewing services or have other behaviors of violating Anime+intellectual property right without permission of Anime+. Otherwise, Anime+will investigate the legal responsibility of the tort-feasor.\n\n
+        \t\t• The intellectual property right owned by Anime+shall not be transferred because of any using behavior of users.\n\n
+        \t\tAnime+is a platform for acquiring, sharing and disseminating information; we respect and encourage user-created contents and are committed to taking the protection of intellectual property rights as one of the fundamental principles of Anime+operation.\n\n
+        \t\t• All participants agree that the copyright of the translation contents of works submitted by users in the Anime+belongs to the Anime+, and Anime+shall not pay for the users; Anime+has the right to use, modify or release the aforesaid contents and users shall not authorize any third party to use them in any way without the permission of Anime+.\n\n
+        \t\t• The copyright of the original contents other than the translation published by the users in the Anime+belongs to such user. The user can authorize any third party to use them in any way without the permission of Anime+.In order to facilitate the sharing and dissemination of knowledge, users grant the free, irrevocable and non-exclusive license to Anime+for their original contents published in Anime+other than translation, and Anime+has the right to use the contents in all forms of Anime+products and services, including but not limited to the websites and published applications or other Internet products.\n\n
+        \t\t• Users shall ensure that they have been authorized by relevant obligee when they publish the reprinted contents other than the translation and original contents in the Anime+and have authorized the Anime+to non-exclusively use the contents when they log in Anime+and upload the contents. If any dispute is caused because the reprinted contents published by users are not authorized by the relevant obligee, users shall be responsible to such obligee, and bear any direct or indirect loss suffered by Anime+.\n\n
+        <b>5. Breach Clauses</b>\n\n
+        \t\t• Users understand and acknowledge that Anime+is entitled to the following rights, Anime+\'s exercise of the following rights shall not be deemed as breach of contract and users shall not investigate or shall exempt from the relevant legal responsibilities of Anime+: users have the right to use for a long time the Anime+account obtained legally and the services under the account, but users shall confirm that they only have the right to use the above services, and the ownership and intellectual property right of the above services belong to Anime+. Anime+has the right to decide at its own discretion the termination date of the services according to the actual condition without further informing users or obtaining the consent of users. \n\n
+        \t\t• To use the Anime+services, users need to register an account and set a password, and ensure the authenticity, correctness and integrity of the registration information; in case of any change to the above registration information, users shall timely make a change correspondingly. Upon completion of the registration process for the services, users shall maintain the confidentiality and security of the account and password. Users shall be fully responsible for the activities of any person using his or her account and password, and Anime+cannot identify the illegal or unauthorized use of users\' accounts and passwords, so Anime+shall not bear any responsibility.\n\n
+        \t\t• Anime+cannot guarantee whether it is infected with the computer virus, or whether it hides hacker software such as the Trojan Horses in disguise; it shall not bear the legal responsibility of indemnifying the users for all the direct or. indirect damages suffered thereby\n\n
+        \t\t• Users shall use any data downloaded or obtained through Anime+service at their own risk, and shall be fully responsible for any damage to the user\'s computer system or loss of data as a result of such use.\n\n
+        \t\t• In case of any dispute, risk or loss between users and any third party in the process of using Anime+for users\' reasons, the users shall bear all responsibilities to the third party and indemnify Anime+for any direct or indirect loss suffered thereby.\n\n
+        \t\t• Anime+reserves the right to investigate users\' responsibility and require users to bear the liability if users violate the provisions of the statement, or their emotional or negligent behaviors cause any loss to Anime+.\n\n
+        <b>6. Termination Clauses</b> \n\n
+        \t\t• Anime+has the right to determine whether users\' behaviors meet the requirements of the clauses of the statement; Anime+has the right to immediately terminate the user\'s services and delete the user\'s information if Anime+determines that the user violates the provision of clauses of the statement; \n\n
+        \t\t• Anime+can modify, suspend or terminate users\' free services in part or in whole at any time and reserve the right not to inform any user or third party necessarily.\n\n
+        <b>7. Exception Clauses</b> \n\n
+        \t\t• Anime+shall neither guarantee that the free services provided will not be modified, suspended, terminated or delayed, nor guarantee the absolute integrity and security of users\' personal information.\n\n
+        Anime+shall not bear any responsibility for the modification, suspension, termination and delay of the user\'s free services and the loss of users\' personal information;\n\n
+        \t\t• Anime+only guarantees the authenticity, legality and accuracy of the information released by itself and does not guarantee the authenticity, legality and accuracy of the information released by users.\n\n
+        The accessor shall confirm the information content and take the risk of using the information; at the same time, Anime+shall not bear the losses and responsibilities arising from the false information published by other users other than Anime+itself.\n\n
+        <b>8. Modification and Amendment of Clauses</b>\n\n
+        \t\t• Anime+has the right to modify the clauses of the statement if necessary; in case of any change to the clauses of the statement, the modified contents will be prompted on important pages. \n\n
+        \t\t• In case that the users do not agree with the changed content, the users can take the initiative to stop the obtained network services. If users continue to use the network services, they are deemed to accept the changes to the clauses of the statement.\n\n
+        <b>9. Application of Law and Settlement of Dispute</b> \n\n
+        \t\t• The entry into force, performance and interpretation of the statement and the settlement of the dispute shall be governed by the Law of the People\'s Republic of China. When the statement is partially invalid due to its conflict with the Current Law of the People\'s Republic of China, the validity of other parts shall not be affected.\n\n
+        \t\t• Any dispute over the content of the statement or its implementation shall be settled through friendly consultation as far as possible; if the dispute cannot be solved through consultation, the parties of the dispute agree to submit the dispute to the Shanghai International Arbitration Commission arbitration committee for arbitration in Shanghai in accordance with the arbitration rules. The arbitration award shall be final and legally binding on all parties.\n\n
+        <b>10. INQUIRIES</b>\n\n
+        \t\tIf you have any questions, please feel free to e-mail us at Nguyenduy17698@gmail.com.</string>
+    <string name="go_to_home"><i>Go to home </i></string>
+    <string name="back">Back</string>
+    <string name="subscribe">Subscribe</string>
+    <string name="unsubscribe">Unsubscribe</string>
+    <string name="recommend_for_you">Recommend For You</string>
+    <string name="chapter">Chapter</string>
+    <string name="positive">Positive</string>
+    <string name="reverse">Reverse</string>
+    <string name="home">Home</string>
+    <string name="genre">Genre</string>
+    <string name="library">Library</string>
+    <string name="top_manga">Top Manga</string>
+    <string name="recommend">Recommend</string>
+    <string name="top_anime">Top Anime</string>
+    <string name="more_anime_and_manga">More Anime and Manga</string>
+    <string name="my_points">My Points</string>
+    <string name="person">Person</string>
+    <string name="anime_new">Anime New</string>
+    <string name="author">Author:</string>
+    <string name="episode">Episode</string>
+    <string name="download">Download</string>
+    <string name="save">Save</string>
+    <string name="season">Season</string>
+    <string name="hot_comments">Hot Comments</string>
+    <string name="seasons">Seasons</string>
+    <string name="manga_new">Manga New</string>
+    <string name="write_comment">Write comment ...</string>
+    <string name="not_manga_yet">Not Manga Yet</string>
+    <string name="not_anime_yet">Not Anime Yet</string>
+    <string name="view">view</string>
+    <string name="my_profile">My Profile</string>
+    <string name="about_us">About Us</string>
+    <string name="logout">Logout</string>
+    <string name="login">Login</string>
+    <string name="history">History</string>
+    <string name="dowload">Dowload</string>
+    <string name="saved_list">Saved list</string>
+    <string name="subcribe">Subcribe</string>
+    <string name="new_list">New list</string>
+    <string name="click_to_login">Click to login</string>
+    <string name="vote_now">Vote now</string>
+    <string name="close">Close</string>
+    <string name="submit">Submit</string>
+</resources>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/home">
+    <fragment
+        android:id="@id/splash"
+        android:name="edu.nuce.cinema.ui.splash.SplashFragment"
+        android:label="SplashFragment">
+        <argument
+            android:name="data"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/home"
+            app:popUpTo="@+id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@id/login"
+        android:name="edu.nuce.cinema.ui.login.LoginFragment"
+        android:label="LoginFragment">
+        <action
+            android:id="@+id/action_loginFragment_to_privacyFragment"
+            app:destination="@id/privacy"
+            app:popUpTo="@id/nav_graph" />
+        <action
+            app:popUpToInclusive="true"
+            app:popUpTo="@+id/nav_graph"
+            android:id="@+id/action_login_to_home"
+            app:destination="@id/home" />
+    </fragment>
+    <fragment
+        android:id="@id/privacy"
+        android:name="edu.nuce.cinema.ui.login.PrivacyFragment"
+        android:label="PrivacyFragment" />
+    <fragment
+        android:id="@id/home"
+        android:name="edu.nuce.cinema.ui.home.HomeFragment"
+        android:label="HomeFragment">
+        <action
+            android:id="@+id/action_homeFragment_to_mangaFragment"
+            app:destination="@id/detail" />
+        <action
+            android:id="@+id/action_home_to_animeFragment"
+            app:destination="@id/anime" />
+        <action
+            android:id="@+id/action_home_to_login"
+            app:destination="@id/login" />
+    </fragment>
+    <fragment
+        android:id="@id/detail"
+        android:name="edu.nuce.cinema.ui.detail.DetailFragment"
+        android:label="DetailFragment">
+        <argument
+            android:name="series"
+            app:argType="edu.nuce.cinema.data.models.Series" />
+        <action
+            android:id="@+id/action_detail_self"
+            app:destination="@id/detail" />
+        <action
+            android:id="@+id/action_detail_to_episode"
+            app:destination="@id/episode" />
+        <action
+            android:id="@+id/action_detail_to_chapter"
+            app:destination="@id/chapter" />
+        <action
+            android:id="@+id/action_detail_to_login"
+            app:destination="@id/login" />
+    </fragment>
+    <fragment
+        android:id="@id/genre"
+        android:name="edu.nuce.cinema.ui.genre.GenreFragment"
+        android:label="GenreFragment" />
+    <fragment
+        android:id="@id/library"
+        android:name="edu.nuce.cinema.ui.library.LibraryFragment"
+        android:label="LibraryFragment" />
+    <fragment
+        android:id="@id/person"
+        android:name="edu.nuce.cinema.ui.person.PersonFragment"
+        android:label="PersonFragment" >
+        <action
+            android:id="@+id/action_person_to_login"
+            app:destination="@id/login" />
+    </fragment>
+    <fragment
+        android:id="@id/anime"
+        android:name="edu.nuce.cinema.ui.anime.AnimeFragment"
+        android:label="AnimeFragment">
+        <argument
+            android:name="anime"
+            app:argType="edu.nuce.cinema.data.models.Anime" />
+    </fragment>
+    <fragment
+        android:id="@id/episode"
+        android:name="edu.nuce.cinema.ui.episode.EpisodeFragment"
+        android:label="EpisodeFragment">
+        <argument
+            android:name="season"
+            app:argType="edu.nuce.cinema.data.models.Season" />
+        <action
+            android:id="@+id/action_episode_to_anime"
+            app:destination="@id/anime" />
+    </fragment>
+    <fragment
+        android:id="@id/chapter"
+        android:name="edu.nuce.cinema.ui.chapter.ChapterFragment"
+        android:label="ChapterFragment">
+        <argument
+            android:name="season"
+            app:argType="edu.nuce.cinema.data.models.Season" />
+    </fragment>
+</navigation>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_bg_getstarted">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.10" />
+
+    <TextView
+        android:id="@+id/anime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginVertical="@dimen/_10sdp"
+        android:alpha="0.8"
+        android:fontFamily="@font/achafexp"
+        android:text="@string/anime"
+        android:textColor="@color/color_blue_text"
+        android:textSize="@dimen/_30sdp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        style="@style/TextWhite13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_15sdp"
+        android:alpha="0.6"
+        android:padding="@dimen/_5sdp"
+        android:text="@string/back"
+        android:textSize="@dimen/_10sdp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/border_white_50"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guide_10">
+
+        <TextView
+            android:id="@+id/info"
+            style="@style/TextBlack13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Imfomation"
+            android:textAlignment="center"
+            android:textSize="@dimen/_30sdp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edt_email"
+            style="@style/TextBlack13"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/info"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:background="@drawable/border_white_24"
+            android:hint="Your email"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:paddingVertical="@dimen/_10sdp" />
+
+        <EditText
+            android:id="@+id/edt_verify"
+            style="@style/TextBlack13"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edt_email"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:background="@drawable/border_white_24"
+            android:hint="Your phone"
+            android:paddingHorizontal="@dimen/_15sdp"
+            android:paddingVertical="@dimen/_10sdp" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_continue"
+            style="@style/TextWhite13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edt_verify"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:background="@drawable/border_blue_24"
+            android:drawableEnd="@drawable/ic_next"
+            android:drawablePadding="@dimen/_10sdp"
+            android:paddingHorizontal="@dimen/_30sdp"
+            android:text="Go to anime +"
+            android:textAllCaps="false" />
+
+        <TextView
+            android:id="@+id/privacy_agreement"
+            style="@style/TextWhite13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/_20sdp"
+            android:text="@string/privacy_agreement"
+            android:textColor="@color/color_blue_text" />
+
+        <TextView
+            android:id="@+id/privacy_policy"
+            style="@style/TextWhite13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/_20sdp"
+            android:text="@string/privacy_policy"
+            android:textColor="@color/color_blue_text" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

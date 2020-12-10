@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="splash" type="id" />
+    <item name="login" type="id" />
+    <item name="privacy" type="id" />
+    <item name="manga" type="id" />
+    <item name="anime" type="id" />
+    <item name="detail" type="id" />
+    <item name="home" type="id" />
+    <item name="genre" type="id" />
+    <item name="library" type="id" />
+    <item name="person" type="id" />
+    <item name="episode" type="id" />
+    <item name="chapter" type="id" />
+    <item name="seasonAnime" type="id" />
+    <item name="seasonManga" type="id" />
+</resources>

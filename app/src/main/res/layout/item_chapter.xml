@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <include
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:id="@+id/include"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/item_divider_vertical"/>
+    <ImageView
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_below="@+id/include"
+        android:id="@+id/iv_chapter"
+        android:layout_width="@dimen/_13sdp"
+        android:layout_height="@dimen/_13sdp"
+        android:src="@drawable/ic_chapter"
+        />
+    <TextView
+        android:id="@+id/tv_chapter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/iv_chapter"
+        android:text="@string/chapter"
+        android:textColor="@color/black_800"
+        style="@style/TextBlack13"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_alignTop="@+id/iv_chapter"
+        />
+
+    <TextView
+        android:id="@+id/tv_chapter_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/tv_chapter"
+        android:textColor="@color/black_800"
+        style="@style/TextBlack13"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_alignTop="@+id/iv_chapter" />
+
+    <TextView
+        android:id="@+id/chapter_name"
+        style="@style/TextBlack11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:layout_below="@+id/iv_chapter"
+        android:layout_marginTop="@dimen/_10sdp" />
+
+    <LinearLayout
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:layout_marginVertical="@dimen/_10sdp"
+        android:layout_below="@id/chapter_name"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextBlack11" />
+
+        <TextView
+            android:id="@+id/tv_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextBlack11"
+            android:layout_marginStart="@dimen/_10sdp" />
+
+        <TextView
+            style="@style/TextBlack9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:text="@string/view" />
+    </LinearLayout>
+</RelativeLayout>
