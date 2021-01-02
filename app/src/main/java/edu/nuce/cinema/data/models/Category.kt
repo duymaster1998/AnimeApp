@@ -5,12 +5,10 @@ import androidx.recyclerview.widget.DiffUtil
 import com.google.gson.annotations.SerializedName
 
 data class Category(
-    @SerializedName("createdAt")
-    val createdAt: String,
-    @SerializedName("deletedAt")
-    val deletedAt: Any,
     @SerializedName("id")
-    val id: String,
+    val id: Int,
+    @SerializedName("item")
+    val item: String,
     @SerializedName("image")
     val image: String,
     @SerializedName("name")

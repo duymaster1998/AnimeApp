@@ -1,5 +1,6 @@
 package edu.nuce.cinema.ui.detail
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
@@ -48,6 +49,8 @@ class DetailFragment : BaseFragment(R.layout.fragment_detail), DetailEvents,
         PublishSubject.create<DetailIntent.IsFollowIntent>()
     private val _followItentPublisher =
         PublishSubject.create<DetailIntent.FollowIntent>()
+    private val _unFollowItentPublisher =
+        PublishSubject.create<DetailIntent.UnFollowIntent>()
     private val _viewModel: DetailViewModel by viewModels()
 
     @Inject
@@ -64,6 +67,7 @@ class DetailFragment : BaseFragment(R.layout.fragment_detail), DetailEvents,
         if (rxOAuthManager.isExistsCredentials) {
             _isFollowIntenPublisher.onNext(DetailIntent.IsFollowIntent(args.series.id))
         }
+
         val tabLayout = _binding.tabLayout
         //list child fragments
         val list = listOf(
@@ -103,15 +107,22 @@ class DetailFragment : BaseFragment(R.layout.fragment_detail), DetailEvents,
             _getRateSeriesItentPublisher,
             _followItentPublisher,
             _isFollowIntenPublisher
+        ).mergeWith(
+            _unFollowItentPublisher
         )
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun render(state: DetailViewState) {
         if (state.error != null) {
             Timber.e(state.error)
             return
         }
         Timber.e(state.isLoading.toString())
+        if (state.isFollow)
+            _binding.btnSubscribe.setImageDrawable(resources.getDrawable(R.drawable.ic_heart_color))
+        else
+            _binding.btnSubscribe.setImageDrawable(resources.getDrawable(R.drawable.ic_heart))
         adapterCategorySeries = AdapterCategorySeries(requestManager)
         adapterCategorySeries.submitList(state.categories)
         _binding.run {
@@ -122,26 +133,22 @@ class DetailFragment : BaseFragment(R.layout.fragment_detail), DetailEvents,
             requestManager.load(args.series.backdropPath).into(image)
             tvName.text = args.series.name
             include.imgAction.setOnClickListener { onBackPressed() }
-            btnSubscribe.apply {
-                isChecked = state.isFollow
-                setOnCheckedChangeListener { compoundButton, b ->
-                    if (b){
-                        onSubscribe(resources.getString(R.string.subcribe))
-                        isChecked = b
-                    }else{
-                        onSubscribe(resources.getString(R.string.unsubscribe))
-                        isChecked = b
-                    }
-                }
+            btnSubscribe.setOnClickListener {
+                onSubscribe(state.isFollow)
             }
         }
     }
-    override fun onSubscribe(mess:String) {
+
+    override fun onSubscribe(state: Boolean) {
         if (rxOAuthManager.isExistsCredentials) {
-            _followItentPublisher.onNext(DetailIntent.FollowIntent(args.series.id))
-            toast(mess)
-        } else {
+            if (state == false) {
+                _followItentPublisher.onNext(DetailIntent.FollowIntent(args.series.id))
+                toast(resources.getString(R.string.subcribe))
+            } else if(state == true) {
+                _unFollowItentPublisher.onNext(DetailIntent.UnFollowIntent(args.series.id))
+                toast(resources.getString(R.string.unsubscribe))
+            }
+        } else
             findNavController().navigate(actionDetailToLogin())
-        }
     }
 }

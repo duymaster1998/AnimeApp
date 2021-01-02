@@ -138,6 +138,9 @@ dependencies {
     kapt(Dependencies.Helper.PermissionsCompiler)
     //Slider
     implementation(Dependencies.Slider.indicator)
+    //Load PDF
+    implementation(Dependencies.LoadPDF.pdf)
+    implementation(Dependencies.LoadPDF.loader)
 }
 
 ktlint {

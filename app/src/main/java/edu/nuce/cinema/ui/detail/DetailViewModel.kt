@@ -41,6 +41,7 @@ class DetailViewModel @ViewModelInject constructor(
             is DetailIntent.GetRateSeriesIntent -> DetailAction.GetRateSeriesAction(id = intent.id)
             is DetailIntent.IsFollowIntent -> DetailAction.IsFollowAction(id = intent.id)
             is DetailIntent.FollowIntent -> DetailAction.FollowAction(id = intent.id)
+            is DetailIntent.UnFollowIntent -> DetailAction.UnFollowAction(id = intent.id)
         }
     }
 
@@ -98,7 +99,7 @@ class DetailViewModel @ViewModelInject constructor(
                     is DetailResult.FollowResult.Success -> {
                         previousState.copy(
                             isLoading = false,
-                            message = result.message
+                            isFollow = result.isFollow
                         )
                     }
                     is DetailResult.FollowResult.Failure -> {
@@ -108,6 +109,21 @@ class DetailViewModel @ViewModelInject constructor(
                         )
                     }
                     is DetailResult.FollowResult.InFlight -> previousState.copy(isLoading = true)
+                }
+                is DetailResult.UnFollowResult -> when (result) {
+                    is DetailResult.UnFollowResult.Success -> {
+                        previousState.copy(
+                            isLoading = false,
+                            isFollow = result.isFollow
+                        )
+                    }
+                    is DetailResult.UnFollowResult.Failure -> {
+                        previousState.copy(
+                            isLoading = false,
+                            error = result.error
+                        )
+                    }
+                    is DetailResult.UnFollowResult.InFlight -> previousState.copy(isLoading = true)
                 }
             }
         }

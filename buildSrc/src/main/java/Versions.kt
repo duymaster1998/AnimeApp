@@ -87,4 +87,8 @@ object Versions {
     object Slider{
         const val indicator = "2.1.4"
     }
+    object LoadPDF{
+        const val pdf = "3.2.0-beta.1"
+        const val loader = "1.2"
+    }
 }

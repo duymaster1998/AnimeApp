@@ -189,6 +189,7 @@
                 tools:itemCount="12" />
 
             <Button
+                android:id="@+id/btn_serise_all"
                 style="@style/TextWhite13"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

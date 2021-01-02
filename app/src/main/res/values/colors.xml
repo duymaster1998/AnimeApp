@@ -53,6 +53,7 @@
     <color name="reply_blue_50_alpha_060">#99eef0f2</color>
 
     <color name="reply_black_900_alpha_020">#33000000</color>
+    <color name="reply_black_40">#66000000</color>
     <color name="reply_black_900_alpha_087">#de000000</color>
     <color name="reply_black_900_alpha_060">#99000000</color>
     <color name="nav_bar">@color/reply_black_900_alpha_020</color>

@@ -87,6 +87,8 @@
     <string name="save">Save</string>
     <string name="season">Season</string>
     <string name="hot_comments">Hot Comments</string>
+    <string name="comments_detail">Comments Detail</string>
+    <string name="comments">Comments</string>
     <string name="seasons">Seasons</string>
     <string name="manga_new">Manga New</string>
     <string name="write_comment">Write comment ...</string>
@@ -106,4 +108,16 @@
     <string name="vote_now">Vote now</string>
     <string name="close">Close</string>
     <string name="submit">Submit</string>
+    <string name="manga">Manga</string>
+    <string name="add_archive">Add Archive</string>
+    <string name="write_archive">Write Archive ...</string>
+    <string name="new_archive">New Archive ...</string>
+    <string name="remove">Remove</string>
+    <string name="action">Action</string>
+    <string name="what_is_the_problem_here">What is the problem here ?</string>
+    <string name="problem_here">Problem here ...</string>
+    <string name="please_type_in">Please type in</string>
+    <string name="warning">Warning !</string>
+    <string name="report">Report</string>
+    <string name="you_reported_this_comment_are_you_sure_you_want_to_continue_to_report">You reported this comment. Are you sure you want to continue to report ?</string>
 </resources>

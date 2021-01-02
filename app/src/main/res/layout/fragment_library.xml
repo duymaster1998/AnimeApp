@@ -13,15 +13,27 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_10sdp"
         android:text="@string/subcribe" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_subcribe"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <RelativeLayout
         android:layout_marginTop="@dimen/_10sdp"
-        android:orientation="horizontal"
-        android:overScrollMode="never"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_subcribe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        <TextView
+            android:id="@+id/tv_sub_null"
+            style="@style/TextBlack15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Series not exist"
+            android:textAlignment="center"
+            android:textColor="@color/color_orange_900"
+            />
+    </RelativeLayout>
 
     <include
         layout="@layout/item_divider_vertical"
@@ -29,6 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="@dimen/_20sdp" />
     <TextView
+        android:id="@+id/tv_history"
         style="@style/TextBlack11"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,6 +70,7 @@
         android:layout_height="wrap_content"
         android:text="@string/saved_list" />
     <TextView
+        android:id="@+id/btn_add_archive"
         style="@style/TextBlack11"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -71,7 +85,7 @@
         android:id="@+id/rv_saved"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginVertical="@dimen/_15sdp"
         android:orientation="vertical"
         android:overScrollMode="never"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />

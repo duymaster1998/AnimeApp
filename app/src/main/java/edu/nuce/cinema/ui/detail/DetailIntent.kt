@@ -7,4 +7,5 @@ sealed class DetailIntent : MviIntent {
     data class GetRateSeriesIntent(val id:Int):DetailIntent()
     data class IsFollowIntent(val id:Int):DetailIntent()
     data class FollowIntent(val id:Int):DetailIntent()
+    data class UnFollowIntent(val id:Int):DetailIntent()
 }
