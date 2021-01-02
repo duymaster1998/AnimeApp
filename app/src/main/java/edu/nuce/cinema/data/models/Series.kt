@@ -17,7 +17,13 @@ data class Series(
     @SerializedName("name")
     val name: String,
     @SerializedName("sumary")
-    val sumary: String
+    val sumary: String,
+    @SerializedName("rating")
+    val rating: Float,
+    @SerializedName("author")
+    val author: String,
+    @SerializedName("updatedAt")
+    val updatedAt: String
 ):Parcelable
 
 object SeriesDiffCallback : DiffUtil.ItemCallback<Series>() {

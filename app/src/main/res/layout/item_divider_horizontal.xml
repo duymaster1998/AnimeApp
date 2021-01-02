@@ -7,6 +7,6 @@
     <View
         android:layout_width="1dp"
         android:layout_height="match_parent"
-        android:background="@color/color_gray"
+        android:background="@color/reply_black_900_alpha_020"
         tools:ignore="MissingConstraints" />
 </FrameLayout>

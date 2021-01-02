@@ -144,7 +144,12 @@ object Dependencies {
             "org.permissionsdispatcher:permissionsdispatcher-processor:${Versions.permissions}"
     }
 
-    object Slider{
+    object Slider {
         const val indicator = "me.relex:circleindicator:${Versions.Slider.indicator}"
+    }
+
+    object LoadPDF {
+        const val pdf = "com.github.barteksc:android-pdf-viewer:${Versions.LoadPDF.pdf}"
+        const val loader = "com.github.kk121:File-Loader:${Versions.LoadPDF.loader}"
     }
 }

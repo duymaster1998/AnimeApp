@@ -19,8 +19,11 @@ import edu.nuce.cinema.data.models.Series
 import edu.nuce.cinema.databinding.FragmentHomeBinding
 import edu.nuce.cinema.ui.base.BaseFragment
 import edu.nuce.cinema.ui.common.adapter.AdapterSeries
+import edu.nuce.cinema.ui.common.constants.SeriesTypeAction
 import edu.nuce.cinema.ui.home.HomeFragmentDirections.Companion.actionHomeFragmentToMangaFragment
 import edu.nuce.cinema.ui.home.HomeFragmentDirections.Companion.actionHomeToAnimeFragment
+import edu.nuce.cinema.ui.home.HomeFragmentDirections.Companion.actionHomeToManga
+import edu.nuce.cinema.ui.home.HomeFragmentDirections.Companion.actionHomeToSeries
 import edu.nuce.cinema.ui.home.adapter.*
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.subjects.PublishSubject
@@ -120,6 +123,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home), MviView<HomeIntent, H
             rvTopAnime.adapter = adaperTopAnime
             rvCategory.adapter = adapterCategory
             rvNewManga.adapter = adapterMangaN
+            btnSeriseAll.setOnClickListener { findNavController().navigate(actionHomeToSeries(0,SeriesTypeAction.GET_ALL)) }
         }
     }
 
@@ -148,7 +152,6 @@ class HomeFragment : BaseFragment(R.layout.fragment_home), MviView<HomeIntent, H
             resources.getDimension(R.dimen._110sdp).toInt()
         )
         adapterCategory = AdapterCategory(this, requestManager)
-
         adapterAnimeN = AdapterAnimeN(this,requestManager)
         adapterMangaN = AdapterMangaN(this,requestManager)
 
@@ -159,7 +162,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home), MviView<HomeIntent, H
     }
 
     override fun onClikCategory(view: View, category: Category) {
-        toast(category.name)
+        findNavController().navigate(actionHomeToSeries(category.id,SeriesTypeAction.GET_BY))
     }
 
     override fun onClickAnimeN(view: View, anime: Anime) {
@@ -167,6 +170,6 @@ class HomeFragment : BaseFragment(R.layout.fragment_home), MviView<HomeIntent, H
     }
 
     override fun onClickMangaN(view: View, manga: Manga) {
-        toast(manga.title)
+        findNavController().navigate(actionHomeToManga(manga))
     }
 }

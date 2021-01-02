@@ -30,19 +30,24 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_10sdp"
         app:layout_constraintTop_toTopOf="parent" />
-    <androidx.appcompat.widget.AppCompatToggleButton
+    <ImageView
         android:id="@+id/btn_subscribe"
         android:layout_width="@dimen/_28sdp"
         android:layout_height="@dimen/_28sdp"
-        android:background="@drawable/toggle_subcribe"
-        android:text=""
-        android:textOff=""
-        android:textOn=""
         android:layout_marginEnd="@dimen/_16sdp"
         app:layout_constraintTop_toTopOf="@+id/include"
         app:layout_constraintBottom_toBottomOf="@+id/include"
         app:layout_constraintEnd_toEndOf="parent"
         tools:ignore="MissingConstraints" />
+<!--    <ImageView-->
+<!--        android:id="@+id/btn_sub"-->
+<!--        android:layout_width="@dimen/_28sdp"-->
+<!--        android:layout_height="@dimen/_28sdp"-->
+<!--        android:layout_marginEnd="@dimen/_16sdp"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/include"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/include"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        tools:ignore="MissingConstraints" />-->
 
     <LinearLayout
         android:id="@+id/linearLayout"

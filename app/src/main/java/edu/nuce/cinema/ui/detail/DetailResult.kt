@@ -22,8 +22,13 @@ sealed class DetailResult : MviResult{
         object InFlight : IsFollowResult()
     }
     sealed class FollowResult: DetailResult() {
-        data class Success(val message: String) : FollowResult()
+        data class Success(val isFollow: Boolean) : FollowResult()
         data class Failure(val error: Throwable) : FollowResult()
         object InFlight : FollowResult()
+    }
+    sealed class UnFollowResult: DetailResult() {
+        data class Success(val isFollow: Boolean) : UnFollowResult()
+        data class Failure(val error: Throwable) : UnFollowResult()
+        object InFlight : UnFollowResult()
     }
 }

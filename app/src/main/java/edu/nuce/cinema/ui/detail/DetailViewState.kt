@@ -10,7 +10,8 @@ data class DetailViewState (
     val categories:List<Category>,
     val rating:Float,
     val isFollow:Boolean,
-    var message:String
+    var message:String,
+    var unfollow:Boolean,
 ):MviViewState{
     companion object {
         fun initialState(): DetailViewState {
@@ -20,7 +21,8 @@ data class DetailViewState (
                 categories = listOf(),
                 rating = 0F,
                 isFollow = false,
-                message = ""
+                message = "",
+                unfollow = true
             )
         }
     }

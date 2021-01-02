@@ -47,6 +47,12 @@
         <action
             android:id="@+id/action_home_to_login"
             app:destination="@id/login" />
+        <action
+            android:id="@+id/action_home_to_series"
+            app:destination="@id/series" />
+        <action
+            android:id="@+id/action_home_to_manga"
+            app:destination="@id/manga" />
     </fragment>
     <fragment
         android:id="@id/detail"
@@ -67,15 +73,29 @@
         <action
             android:id="@+id/action_detail_to_login"
             app:destination="@id/login" />
+        <action
+            android:id="@+id/action_detail_to_commentDetail"
+            app:destination="@id/commentDetail" />
     </fragment>
     <fragment
         android:id="@id/genre"
         android:name="edu.nuce.cinema.ui.genre.GenreFragment"
-        android:label="GenreFragment" />
+        android:label="GenreFragment" >
+        <action
+            android:id="@+id/action_genre_to_series"
+            app:destination="@id/series" />
+    </fragment>
     <fragment
         android:id="@id/library"
         android:name="edu.nuce.cinema.ui.library.LibraryFragment"
-        android:label="LibraryFragment" />
+        android:label="LibraryFragment" >
+        <action
+            android:id="@+id/action_library_to_detail"
+            app:destination="@id/detail" />
+        <action
+            android:id="@+id/action_library_to_libraryDetail"
+            app:destination="@id/libraryDetail" />
+    </fragment>
     <fragment
         android:id="@id/person"
         android:name="edu.nuce.cinema.ui.person.PersonFragment"
@@ -91,6 +111,12 @@
         <argument
             android:name="anime"
             app:argType="edu.nuce.cinema.data.models.Anime" />
+        <action
+            android:id="@+id/action_anime_to_login"
+            app:destination="@id/login" />
+        <action
+            android:id="@+id/action_anime_to_commentDetailFragment"
+            app:destination="@id/commentDetail" />
     </fragment>
     <fragment
         android:id="@id/episode"
@@ -110,5 +136,78 @@
         <argument
             android:name="season"
             app:argType="edu.nuce.cinema.data.models.Season" />
+        <action
+            android:id="@+id/action_chapter_to_manga"
+            app:destination="@id/manga" />
+    </fragment>
+    <fragment
+        android:id="@id/commentDetail"
+        android:name="edu.nuce.cinema.ui.comment_detail.CommentDetailFragment"
+        android:label="CommentDetailFragment" >
+        <action
+            android:id="@+id/action_commentDetailFragment_to_login"
+            app:destination="@id/login" />
+        <argument
+            android:name="comment"
+            app:argType="edu.nuce.cinema.data.models.Comment" />
+    </fragment>
+    <fragment
+        android:id="@id/libraryDetail"
+        android:name="edu.nuce.cinema.ui.LibraryDetail_detail.LibraryDetailFragment"
+        android:label="LibraryDetailFragment" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <argument
+            android:name="type"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_libraryDetail_to_anime"
+            app:destination="@id/anime" />
+        <action
+            android:id="@+id/action_libraryDetail_to_manga"
+            app:destination="@id/manga" />
+    </fragment>
+    <fragment
+        android:id="@id/manga"
+        android:name="edu.nuce.cinema.ui.manga.MangaFragment"
+        android:label="MangaFragment" >
+        <argument
+            android:name="manga"
+            app:argType="edu.nuce.cinema.data.models.Manga" />
+        <action
+            android:id="@+id/action_manga_to_login"
+            app:destination="@id/login" />
+        <action
+            android:id="@+id/action_manga_to_commentManga"
+            app:destination="@id/commentManga" />
+    </fragment>
+    <fragment
+        android:id="@id/series"
+        android:name="edu.nuce.cinema.ui.series.SeriesFragment"
+        android:label="SeriesFragment" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <argument
+            android:name="type"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_series_to_detail"
+            app:destination="@id/detail" />
+    </fragment>
+    <fragment
+        android:id="@id/commentManga"
+        android:name="edu.nuce.cinema.ui.comment_manga.CommentMangaFragment"
+        android:label="CommentMangaFragment" >
+        <action
+            android:id="@+id/action_commentManga_to_commentDetail"
+            app:destination="@id/commentDetail" />
+        <action
+            android:id="@+id/action_commentManga_to_login"
+            app:destination="@id/login" />
+        <argument
+            android:name="manga"
+            app:argType="edu.nuce.cinema.data.models.Manga" />
     </fragment>
 </navigation>

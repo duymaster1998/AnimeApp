@@ -50,15 +50,31 @@ class DetailActionProcessor @Inject constructor(
         }
     private val FollowProcessor =
         ObservableTransformer<DetailAction.FollowAction, DetailResult.FollowResult> { action ->
-            action.flatMap { detaiAction ->
-                apiService.createFollow(detaiAction.id)
+            action.flatMap {
+                apiService.createFollow(it.id).andThen(
+                    apiService.isFollow(it.id))
                     .toObservable()
-                    .map { DetailResult.FollowResult.Success(message = it) }
+                    .map { DetailResult.FollowResult.Success(isFollow = it) }
                     .cast(DetailResult.FollowResult::class.java)
                     .onErrorReturn(DetailResult.FollowResult::Failure)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .startWithItem(DetailResult.FollowResult.InFlight)
+            }
+        }
+    private val UnFollowProcessor =
+        ObservableTransformer<DetailAction.UnFollowAction, DetailResult.UnFollowResult> { action ->
+            action.flatMap {
+                apiService.unFollow(it.id)
+                    .andThen(
+                    apiService.isFollow(it.id))
+                    .toObservable()
+                    .map { DetailResult.UnFollowResult.Success(isFollow = it) }
+                    .cast(DetailResult.UnFollowResult::class.java)
+                    .onErrorReturn(DetailResult.UnFollowResult::Failure)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .startWithItem(DetailResult.UnFollowResult.InFlight)
             }
         }
     internal var actionProcessor = ObservableTransformer<DetailAction, DetailResult> { actions ->
@@ -72,6 +88,9 @@ class DetailActionProcessor @Inject constructor(
                     .compose(IsFollowProcessor),
                 shared.ofType(DetailAction.FollowAction::class.java)
                     .compose(FollowProcessor),
+            ).mergeWith(
+                shared.ofType(DetailAction.UnFollowAction::class.java)
+                    .compose(UnFollowProcessor),
             )
         }
     }

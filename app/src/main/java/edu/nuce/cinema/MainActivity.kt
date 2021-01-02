@@ -38,23 +38,20 @@ class MainActivity : BaseActivity(R.layout.activity_main), NavController.OnDesti
         arguments: Bundle?
     ) {
         when (destination.id) {
-            R.id.splash -> {
-                binding.bottomNav.gone()
+            R.id.library->{
+                binding.bottomNav.visible()
             }
-            R.id.detail->{
-                binding.bottomNav.gone()
+            R.id.genre->{
+                binding.bottomNav.visible()
             }
-            R.id.anime->{
-                binding.bottomNav.gone()
+            R.id.person->{
+                binding.bottomNav.visible()
             }
-            R.id.login->{
-                binding.bottomNav.gone()
-            }
-            R.id.episode->{
-                binding.bottomNav.gone()
+            R.id.home->{
+                binding.bottomNav.visible()
             }
             else -> {
-                binding.bottomNav.visible()
+                binding.bottomNav.gone()
             }
 
         }

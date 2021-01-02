@@ -13,9 +13,9 @@ data class Anime(
     @SerializedName("deletedAt")
     val deletedAt: String,
     @SerializedName("episode")
-    val episode: String,
+    val episode: Int,
     @SerializedName("id")
-    val id: String,
+    val id: Int,
     @SerializedName("image")
     val image: String,
     @SerializedName("pointDownload")

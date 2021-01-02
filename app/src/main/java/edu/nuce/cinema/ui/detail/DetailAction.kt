@@ -7,4 +7,5 @@ sealed class DetailAction:MviAction {
     data class GetRateSeriesAction(val id:Int):DetailAction()
     data class IsFollowAction(val id:Int):DetailAction()
     data class FollowAction(val id:Int):DetailAction()
+    data class UnFollowAction(val id:Int):DetailAction()
 }
