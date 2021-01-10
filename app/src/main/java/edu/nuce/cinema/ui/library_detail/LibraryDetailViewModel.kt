@@ -43,6 +43,10 @@ class LibraryDetailViewModel @ViewModelInject constructor(
         return when (intent) {
             is LibraryDetailIntent.GetAnimeIntent -> LibraryDetailAction.GetAnimeAction
             is LibraryDetailIntent.GetMangaIntent -> LibraryDetailAction.GeMangaAction
+            is LibraryDetailIntent.RemoveAnimeIntent -> LibraryDetailAction.RemoveAnimeAction(intent.id)
+            is LibraryDetailIntent.RemoveMangaIntent -> LibraryDetailAction.RemoveMangaAction(intent.id)
+            is LibraryDetailIntent.RemoveAnimeStorageIntent -> LibraryDetailAction.RemoveAnimeStorageAction(intent.animeId,intent.id)
+            is LibraryDetailIntent.RemoveMangaStorageIntent -> LibraryDetailAction.RemoveMangaStorageAction(intent.mangaId,intent.id)
             is LibraryDetailIntent.GetAnimeByArchiveIntent -> LibraryDetailAction.GetAnimeByArchiveAction(intent.id)
             is LibraryDetailIntent.GetMangaByArchiveIntent -> LibraryDetailAction.GetMangaByArchiveAction(intent.id)
         }

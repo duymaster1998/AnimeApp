@@ -79,4 +79,8 @@ class ChapterFragment : BaseFragment(R.layout.fragment_chapter),
     override fun MangaOnClick(manga: Manga) {
         findNavController().navigate(actionChapterToManga(manga))
     }
+
+    override fun onLongClick(manga: Manga): Boolean {
+        return false
+    }
 }

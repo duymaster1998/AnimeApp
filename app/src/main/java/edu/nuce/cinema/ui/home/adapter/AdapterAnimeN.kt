@@ -20,6 +20,7 @@ class AdapterAnimeN @Inject constructor(
 
     interface OnClickAnime {
         fun onClickAnimeN(view: View, anime: Anime)
+        fun onLongClick(anime: Anime):Boolean
     }
 
     class ViewHolder(
@@ -36,6 +37,7 @@ class AdapterAnimeN @Inject constructor(
                 ivSeries.layoutParams.width = root.resources.getDimension(R.dimen._100sdp).toInt()
                 ivSeries.layoutParams.height = root.resources.getDimension(R.dimen._100sdp).toInt()
                 item.setOnClickListener { listener.onClickAnimeN(it, anime) }
+                item.setOnLongClickListener { listener.onLongClick(anime) }
                 requestManager.load(anime.image)
                     .into(ivSeries)
                 tvName.text = name

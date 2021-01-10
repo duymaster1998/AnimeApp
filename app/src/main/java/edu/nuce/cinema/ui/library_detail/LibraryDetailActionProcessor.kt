@@ -61,18 +61,87 @@ class LibraryDetailActionProcessor @Inject constructor(
                     .startWithItem(LibraryDetailResult.GetMangaResult.InFlight)
             }
         }
-    internal var actionProcessor = ObservableTransformer<LibraryDetailAction, LibraryDetailResult> { actions ->
-        actions.publish { shared ->
-            Observable.merge(
-                shared.ofType(LibraryDetailAction.GetAnimeAction::class.java)
-                    .compose(getAnimeProcessor),
-                shared.ofType(LibraryDetailAction.GeMangaAction::class.java)
-                    .compose(getMangaProcessor),
-                shared.ofType(LibraryDetailAction.GetAnimeByArchiveAction::class.java)
-                    .compose(getAnimeByArchiveProcessor),
-                shared.ofType(LibraryDetailAction.GetMangaByArchiveAction::class.java)
-                    .compose(getMangaByArchiveProcessor),
-            )
+    private val removeAnimeProcessor =
+        ObservableTransformer<LibraryDetailAction.RemoveAnimeAction, LibraryDetailResult.GetAnimeResult> { action ->
+            action.flatMap {
+                apiService.removeAnimeHistories(it.id)
+                    .andThen(apiService.getAnimeHistories())
+                    .map { LibraryDetailResult.GetAnimeResult.Success(animes = it) }
+                    .cast(LibraryDetailResult.GetAnimeResult::class.java)
+                    .onErrorReturn(LibraryDetailResult.GetAnimeResult::Failure)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .startWithItem(LibraryDetailResult.GetAnimeResult.InFlight)
+            }
         }
-    }
+    private val removeMangaProcessor =
+        ObservableTransformer<LibraryDetailAction.RemoveMangaAction, LibraryDetailResult.GetMangaResult> { action ->
+            action.flatMap {
+                apiService.removeMangaHistories(it.id)
+                    .andThen(apiService.getMangaHistories())
+                    .map { LibraryDetailResult.GetMangaResult.Success(mangas = it) }
+                    .cast(LibraryDetailResult.GetMangaResult::class.java)
+                    .onErrorReturn(LibraryDetailResult.GetMangaResult::Failure)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .startWithItem(LibraryDetailResult.GetMangaResult.InFlight)
+            }
+        }
+    private val removeAnimeStorageProcessor =
+        ObservableTransformer<LibraryDetailAction.RemoveAnimeStorageAction, LibraryDetailResult.GetAnimeResult> { action ->
+            action.flatMap {
+                apiService.removeAnimeStorage(it.animeId,it.id)
+                    .andThen(apiService.getAnimeByArchive(it.id))
+                    .map { LibraryDetailResult.GetAnimeResult.Success(animes = it) }
+                    .cast(LibraryDetailResult.GetAnimeResult::class.java)
+                    .onErrorReturn(LibraryDetailResult.GetAnimeResult::Failure)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .startWithItem(LibraryDetailResult.GetAnimeResult.InFlight)
+            }
+        }
+    private val removeMangaStorageProcessor =
+        ObservableTransformer<LibraryDetailAction.RemoveMangaStorageAction, LibraryDetailResult.GetMangaResult> { action ->
+            action.flatMap {
+                apiService.removeMangaStorage(it.mangaId,it.id)
+                    .andThen(apiService.getMangaByArchive(it.id))
+                    .map { LibraryDetailResult.GetMangaResult.Success(mangas = it) }
+                    .cast(LibraryDetailResult.GetMangaResult::class.java)
+                    .onErrorReturn(LibraryDetailResult.GetMangaResult::Failure)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .startWithItem(LibraryDetailResult.GetMangaResult.InFlight)
+            }
+        }
+    internal var actionProcessor =
+        ObservableTransformer<LibraryDetailAction, LibraryDetailResult> { actions ->
+            actions.publish { shared ->
+                Observable.merge(
+                    shared.ofType(LibraryDetailAction.GetAnimeAction::class.java)
+                        .compose(getAnimeProcessor),
+                    shared.ofType(LibraryDetailAction.GeMangaAction::class.java)
+                        .compose(getMangaProcessor),
+                    shared.ofType(LibraryDetailAction.GetAnimeByArchiveAction::class.java)
+                        .compose(getAnimeByArchiveProcessor),
+                    shared.ofType(LibraryDetailAction.GetMangaByArchiveAction::class.java)
+                        .compose(getMangaByArchiveProcessor),
+                )
+                    .mergeWith(
+                        shared.ofType(LibraryDetailAction.RemoveAnimeAction::class.java)
+                            .compose(removeAnimeProcessor),
+                    )
+                    .mergeWith(
+                        shared.ofType(LibraryDetailAction.RemoveMangaAction::class.java)
+                            .compose(removeMangaProcessor),
+                    )
+                    .mergeWith(
+                        shared.ofType(LibraryDetailAction.RemoveAnimeStorageAction::class.java)
+                            .compose(removeAnimeStorageProcessor),
+                    )
+                    .mergeWith(
+                        shared.ofType(LibraryDetailAction.RemoveMangaStorageAction::class.java)
+                            .compose(removeMangaStorageProcessor),
+                    )
+            }
+        }
 }

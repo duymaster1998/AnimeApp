@@ -17,6 +17,7 @@ class AdapterChapter @Inject constructor(
 
     interface MangaOnClick {
         fun MangaOnClick(manga: Manga)
+        fun onLongClick(manga: Manga):Boolean
     }
 
     class ViewHolder(
@@ -28,6 +29,7 @@ class AdapterChapter @Inject constructor(
         ) {
             viewBinding.run {
                 item.setOnClickListener { listener.MangaOnClick(manga) }
+                item.setOnLongClickListener { listener.onLongClick(manga) }
                 tvChapterNum.text = manga.episode.toString()
                 tvDate.text = manga.updatedAt
                 tvView.text = manga.view

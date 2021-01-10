@@ -169,6 +169,10 @@ class HomeFragment : BaseFragment(R.layout.fragment_home), MviView<HomeIntent, H
         findNavController().navigate(actionHomeToAnimeFragment(anime))
     }
 
+    override fun onLongClick(anime: Anime): Boolean {
+        return false
+    }
+
     override fun onClickMangaN(view: View, manga: Manga) {
         findNavController().navigate(actionHomeToManga(manga))
     }

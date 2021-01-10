@@ -21,8 +21,10 @@ import edu.nuce.cinema.ui.base.BaseFragment
 import edu.nuce.cinema.ui.chapter.adapter.AdapterChapter
 import edu.nuce.cinema.ui.common.constants.ActionLibrary
 import edu.nuce.cinema.ui.home.adapter.AdapterAnimeN
+import edu.nuce.cinema.ui.library_detail.LibraryDetailEvents
 import edu.nuce.cinema.ui.library_detail.LibraryDetailIntent
 import edu.nuce.cinema.ui.library_detail.LibraryDetailViewState
+import edu.nuce.cinema.ui.library_detail.dialog.ActionLibraryDialog
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.subjects.PublishSubject
 import timber.log.Timber
@@ -31,7 +33,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class LibraryDetailFragment : BaseFragment(R.layout.fragment_detail_library),
     MviView<LibraryDetailIntent, LibraryDetailViewState>, AdapterAnimeN.OnClickAnime,
-    AdapterChapter.MangaOnClick {
+    AdapterChapter.MangaOnClick, LibraryDetailEvents {
 
     lateinit var adapterAnime: AdapterAnimeN
     lateinit var adapterManga: AdapterChapter
@@ -41,10 +43,19 @@ class LibraryDetailFragment : BaseFragment(R.layout.fragment_detail_library),
 
     @Inject
     lateinit var rxOAuthManager: RxOAuthManager
+    lateinit var actionDialog: ActionLibraryDialog
     private val args by navArgs<LibraryDetailFragmentArgs>()
     private val _binding: FragmentDetailLibraryBinding by viewBinding()
     private val _getAnimeIntentPublisher =
         PublishSubject.create<LibraryDetailIntent.GetAnimeIntent>()
+    private val _removeAnimeIntentPublisher =
+        PublishSubject.create<LibraryDetailIntent.RemoveAnimeIntent>()
+    private val _removeMangaIntentPublisher =
+        PublishSubject.create<LibraryDetailIntent.RemoveMangaIntent>()
+    private val _removeAnimeStorageIntentPublisher =
+        PublishSubject.create<LibraryDetailIntent.RemoveAnimeStorageIntent>()
+    private val _removeMangaStorageIntentPublisher =
+        PublishSubject.create<LibraryDetailIntent.RemoveMangaStorageIntent>()
     private val _getMangaIntentPublisher =
         PublishSubject.create<LibraryDetailIntent.GetMangaIntent>()
     private val _getAnimeByArchiveIntentPublisher =
@@ -80,7 +91,16 @@ class LibraryDetailFragment : BaseFragment(R.layout.fragment_detail_library),
             _getMangaIntentPublisher,
             _getMangaByArchiveIntentPublisher,
             _getAnimeByArchiveIntentPublisher
+        ).mergeWith(
+            _removeAnimeIntentPublisher
+        ).mergeWith(
+            _removeMangaIntentPublisher
         )
+            .mergeWith(
+                _removeAnimeStorageIntentPublisher
+            ).mergeWith(
+                _removeMangaStorageIntentPublisher
+            )
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -121,7 +141,51 @@ class LibraryDetailFragment : BaseFragment(R.layout.fragment_detail_library),
         )
     }
 
+    override fun onLongClick(anime: Anime): Boolean {
+        actionDialog = ActionLibraryDialog(this, anime, null)
+        this@LibraryDetailFragment.fragmentManager?.let { it ->
+            actionDialog.show(
+                it,
+                "name"
+            )
+        }
+        return true
+    }
+
     override fun MangaOnClick(manga: Manga) {
         findNavController().navigate(actionLibraryDetailToManga(manga))
+    }
+
+    override fun onLongClick(manga: Manga): Boolean {
+        actionDialog = ActionLibraryDialog(this, null, manga)
+        this@LibraryDetailFragment.fragmentManager?.let { it ->
+            actionDialog.show(
+                it,
+                "name"
+            )
+        }
+        return true
+    }
+
+    override fun onDeleteAnime(input: Anime) {
+        when (args.type) {
+            ActionLibrary.HISTORY -> {
+                _removeAnimeIntentPublisher.onNext(LibraryDetailIntent.RemoveAnimeIntent(input.id))
+            }
+            ActionLibrary.SAVE_LIST -> {
+                _removeAnimeStorageIntentPublisher.onNext(LibraryDetailIntent.RemoveAnimeStorageIntent(input.episode,args.id))
+            }
+        }
+    }
+
+    override fun onDeleteManga(input: Manga) {
+        when (args.type) {
+            ActionLibrary.HISTORY -> {
+                _removeMangaIntentPublisher.onNext(LibraryDetailIntent.RemoveMangaIntent(input.id))
+            }
+            ActionLibrary.SAVE_LIST -> {
+                _removeMangaStorageIntentPublisher.onNext(LibraryDetailIntent.RemoveMangaStorageIntent(input.episode,args.id))
+            }
+        }
     }
 }

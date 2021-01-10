@@ -188,6 +188,12 @@ interface ApiService {
     @GET("histories/manga")
     fun getMangaHistories(): Observable<List<Manga>>
 
+    @DELETE("histories/manga/{id}")
+    fun removeMangaHistories(@Path("id") id: Int): Completable
+
+    @DELETE("histories/anime/{id}")
+    fun removeAnimeHistories(@Path("id") id: Int): Completable
+
     //storage
     @GET("storages/anime/{archiveId}")
     fun getAnimeByArchive(@Path("archiveId") archiveId: Int): Observable<List<Anime>>
@@ -197,6 +203,12 @@ interface ApiService {
 
     @POST("storages/create")
     fun addItemIntoStorage(@Body() storageParams: StorageParams): Single<String>
+
+    @DELETE("storages/manga/{mangaId}/{archiveId}")
+    fun removeMangaStorage(@Path("mangaId") mangaId: Int,@Path("archiveId") archiveId: Int): Completable
+
+    @DELETE("storages/anime/{animeId}/{archiveId}")
+    fun removeAnimeStorage(@Path("animeId") animeId: Int,@Path("archiveId") archiveId: Int): Completable
 
     //like
     @GET("likes/me")
